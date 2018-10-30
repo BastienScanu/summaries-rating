@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <h1>Summaries</h1>
     <ul>
       <li v-for="(value, key) in summaries" v-bind:key="key">
@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import foo from '../data/example_references.json';
+import data from '../data/example_references.json';
 
 export default {
   name: 'SummariesList',
   data() {
     return {
-      summaries: foo,
+      summaries: data,
     };
   },
 };
