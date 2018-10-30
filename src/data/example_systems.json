@@ -1,0 +1,96 @@
+{
+  "D0821": [
+    {
+      "Diversity_feature": 4.438227594380015,
+      "ROUGE_2_fitness": 0.06060606060606061,
+      "ROUGE_1_fitness": 0.3525,
+      "JS_eval_2_fitness": 0.6480519036869978,
+      "Edmundson_feature": 69,
+      "Interaction_feature": 4,
+      "S3_resp_fitness": 0.12812746013527954,
+      "JS_eval_1_fitness": 0.5055939971208271,
+      "S3_pyr_fitness": 0.12812746013527954,
+      "JS_feature": 0.46235637552725084,
+      "responsiveness": 2.0,
+      "LexRank_feature": 0.03144691195064137,
+      "pyr_score": 0.459,
+      "Bigram_frequency_feature": 16.299999999999994,
+      "text": [
+        "If the terrorists' main aim in London  last week was simply to kill people with bombs on public transport,  their attacks were a grim success.",
+        "If the plan was to sow fear and  panic, they failed utterly.",
+        "Since Thursday's four bomb blasts on three subway trains and a  bus, which killed at least 52 people in total, many have remarked  about how quickly, and with how little fuss, people in the British  capital resumed everyday life.",
+        "According to one claim of responsibility posted on the Internet,  the attacks left \"Britain burning in fear, terror, and fright\"."
+      ]
+    },
+    {
+      "Diversity_feature": 4.480391498580145,
+      "ROUGE_2_fitness": 0.0707070707070707,
+      "ROUGE_1_fitness": 0.3325,
+      "JS_eval_2_fitness": 0.6416058854982238,
+      "Edmundson_feature": 128,
+      "Interaction_feature": 13,
+      "S3_resp_fitness": 0.12920008731778443,
+      "JS_eval_1_fitness": 0.48995572025986167,
+      "S3_pyr_fitness": 0.12920008731778443,
+      "JS_feature": 0.41947262704835014,
+      "responsiveness": 2.0,
+      "LexRank_feature": 0.031559476115063115,
+      "pyr_score": 0.361,
+      "Bigram_frequency_feature": 18.5,
+      "text": [
+        "Police working in a hot, dusty tunnel faced a \"great challenge\" recovering bodies from a bomb-hit train near central London's Russell Square subway station, police said Saturday.",
+        "British Prime Minister Tony Blair Thursday left the Group of Eight summit by helicopter to be briefed on the attacks in London, but the G8 summit will continue.",
+        "British police are on the verge of identifying one person they believe was involved in the bomb attacks which killed at least 52 people in London, a report said Tuesday.",
+        "The tunnel was made unsafe, they said, by damage from the bomb blast there.",
+        "\""
+      ]
+    }
+  ],
+  "D0805": [
+    {
+      "Diversity_feature": 4.303389812800367,
+      "ROUGE_2_fitness": 0.05343511450381679,
+      "ROUGE_1_fitness": 0.2947103274559194,
+      "JS_eval_2_fitness": 0.6461093559886208,
+      "Edmundson_feature": 58,
+      "Interaction_feature": 7,
+      "S3_resp_fitness": 0.08669045644240503,
+      "JS_eval_1_fitness": 0.5217573337680466,
+      "S3_pyr_fitness": 0.08669045644240503,
+      "JS_feature": 0.47814860690424554,
+      "responsiveness": 2.0,
+      "LexRank_feature": 0.006893803407558479,
+      "pyr_score": 0.276,
+      "Bigram_frequency_feature": 18.7,
+      "text": [
+        "After a two-year wait, on Tuesday more than 40 million Americans eligible for Medicare can start to sign up for Medicare Part D, the program's voluntary prescription drug benefit.",
+        "And by Tuesday, a quarter of those people, some 10 million retired American workers, will find out something more specific: whether their former employers will continue to pay for their prescription drug benefits in 2006.",
+        "Tuesday is the deadline for employers to say ``yes,'' ``no'' or, perhaps, ``maybe.''  This group of retirees includes my wife, Sara, and me."
+      ]
+    },
+    {
+      "Diversity_feature": 4.19141116001989,
+      "ROUGE_2_fitness": 0.08396946564885496,
+      "ROUGE_1_fitness": 0.33753148614609574,
+      "JS_eval_2_fitness": 0.6191192410936817,
+      "Edmundson_feature": 75,
+      "Interaction_feature": 17,
+      "S3_resp_fitness": 0.13970258329686802,
+      "JS_eval_1_fitness": 0.4664626246800866,
+      "S3_pyr_fitness": 0.13970258329686802,
+      "JS_feature": 0.45423283282985133,
+      "responsiveness": 2.0,
+      "LexRank_feature": 0.007777623426392282,
+      "pyr_score": 0.379,
+      "Bigram_frequency_feature": 20.5,
+      "text": [
+        "Medicare has a toll-free hotline and a Web site to help people sort through the new Part D drug coverage.",
+        "People eligible for the Medicare prescription drug benefit that takes effect Jan. THEN you will automatically be assigned to a randomly selected Medicare drug plan.",
+        "You will automatically be assigned to a Medicare drug plan, but with the option of switching if you find another plan.",
+        "IF you now receive drug benefits through the Massachusetts Prescription Advantage Plan, and are eligible for Medicare, IF you now receive health coverage through a Medicare Advantage Plan, Broken hip?",
+        "in Bethesda, Md.",
+        ")"
+      ]
+    }
+  ]
+}
