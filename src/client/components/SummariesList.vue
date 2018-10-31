@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import summaries from '../data/example_references.json';
+import summaries from '../../server/data/example_references.json';
 
 export default {
   name: 'SummariesList',

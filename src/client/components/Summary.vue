@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import summaries from '../data/example_references.json';
-import systems from '../data/example_systems.json';
+import summaries from '../../server/data/example_references.json';
+import systems from '../../server/data/example_systems.json';
 
 export default {
   name: 'Summary',
