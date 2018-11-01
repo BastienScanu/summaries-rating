@@ -10,14 +10,19 @@
 </template>
 
 <script>
-import summaries from '../../server/data/example_references.json';
 
 export default {
   name: 'SummariesList',
   data() {
     return {
-      summaries,
+      summaries: [],
     };
+  },
+  created() {
+    this.$http.get('http://localhost:3000/reference')
+      .then((response) => {
+        this.summaries = response.body;
+      });
   },
 };
 </script>

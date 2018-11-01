@@ -9,6 +9,7 @@ class Database {
 
   static model(model) {
     return (req, res, next) => {
+      console.log(model);
       req.model = model;
       return next();
     }
@@ -25,11 +26,12 @@ class Database {
   };
 
   static getAll(req, res) {
-    return res.status(200).send(Data[req.model]);
+    console.log('all');
+    return res.status(200).json(Data[req.model]);
   }
 
   static send(req, res) {
-    return res.status(200).send(req.data);
+    return res.status(200).json(req.data);
   };
 
   static update(req, res, next) {
