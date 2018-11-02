@@ -2,20 +2,18 @@
   <div>
     <h1>Summary</h1>
     <h2>Human summaries</h2>
-    <p v-for="summary in references" v-bind:key="summary.id">
-      <span v-for="(sentence, idx) in summary.text" v-bind:key="idx">{{ sentence }}</span>
+    <p v-for="summary in references" v-bind:key="summary.id" class="textList">
+      <summaryCard :summary=summary></summaryCard>
     </p>
     <h2>Generated summaries</h2>
-    <p v-for="(summaries, idx) in systems" v-bind:key="idx">
-      <span
-        v-for="(sentence, idx) in summaries.text"
-        v-bind:key="idx">{{ sentence }}
-      </span>
+    <p v-for="(summary, idx) in systems" v-bind:key="idx" class="textList">
+      <summaryCard :summary=summary></summaryCard>
     </p>
   </div>
 </template>
 
 <script>
+import SummaryCard from './SummaryCard';
 
 export default {
   name: 'Summary',
@@ -24,6 +22,9 @@ export default {
       references: [],
       systems: [],
     };
+  },
+  components: {
+    SummaryCard,
   },
   created() {
     const summaryId = this.$route.params.summaryId;
@@ -38,3 +39,9 @@ export default {
   },
 };
 </script>
+
+<style>
+  .textList {
+    display: flex;
+  };
+</style>
