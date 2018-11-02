@@ -11,13 +11,6 @@
     <div v-else>
       <p>You must choose an user to start</p>
     </div>
-
-    <select v-model="user">
-      <option disabled value="">Select your user</option>
-      <option>Aragorn</option>
-      <option>Gandalf</option>
-      <option>Gimli</option>
-    </select>
   </div>
 </template>
 
@@ -27,10 +20,10 @@ export default {
   name: 'SummariesList',
   data() {
     return {
-      user: '',
       summaries: [],
     };
   },
+  props: ['user'],
   created() {
     this.$http.get('http://localhost:3000/reference')
       .then((response) => {
