@@ -17,6 +17,7 @@
         :user=user
         :index=idx
         :topicId=topicId
+        @rating=updateScore
         :canRate=true></summaryCard>
     </div>
   </div>
@@ -47,6 +48,11 @@ export default {
       .then((response) => {
         this.systems = response.body;
       });
+  },
+  methods: {
+    updateScore(data) {
+      this.systems[data.index][`score-${data.user}`] = data.score;
+    },
   },
 };
 </script>

@@ -35,6 +35,7 @@ export default {
         user: this.user,
         score: event,
       };
+      this.$emit('rating', modif);
       this.$http.put(`http://localhost:4000/system/${this.topicId}`, modif);
     },
   },
