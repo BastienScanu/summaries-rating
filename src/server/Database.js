@@ -42,7 +42,7 @@ class Database {
       (req.body.score || req.body.score === 0)) {
       Systems[req.params.systemId][req.body.index][`score-${req.body.user}`] = req.body.score;
       const filePath = path.resolve(__dirname, './data/example_systems.json');
-      fs.writeFile(filePath, JSON.stringify(Systems, null, 2));
+      fs.writeFileSync(filePath, JSON.stringify(Systems, null, 2));
     }
     return res.status(200).json(req.data);
   }
