@@ -24,7 +24,7 @@ export default {
   components: {
     StarsRating,
   },
-  props: ['summary', 'canRate'],
+  props: ['summary', 'canRate', 'user'],
 };
 </script>
 

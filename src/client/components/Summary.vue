@@ -14,6 +14,7 @@
         v-for="(summary, idx) in systems"
         v-bind:key="idx"
         :summary=summary
+        :user=user
         :canRate=true></summaryCard>
     </div>
   </div>
