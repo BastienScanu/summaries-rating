@@ -20,8 +20,10 @@ import StarsRating from './StarsRating';
 
 export default {
   name: 'SummaryCard',
-  created() {
-    this.rating = this.summary[`score-${this.user}`] || 0;
+  computed: {
+    rating() {
+      return this.summary[`score-${this.user}`] || 0;
+    },
   },
   components: {
     StarsRating,
