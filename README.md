@@ -10,7 +10,10 @@ You need to have Node.js and npm installed on your computer
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+#start the server
+node src/server/server.js
+
+# serve the client with hot reload at localhost:8080
 npm run dev
 
 # build for production with minification
