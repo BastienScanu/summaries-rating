@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="user">
     <h1>Summary {{ $route.params.summaryId }}</h1>
     <h2>Human summaries</h2>
     <div class="textList">
@@ -17,6 +17,9 @@
         :canRate=true></summary-card>
     </div>
   </div>
+  <div v-else>
+    <h1>You must choose an user to start</h1>
+  </div>
 </template>
 
 <script>
@@ -33,6 +36,7 @@ export default {
   components: {
     SummaryCard,
   },
+  props: ['user'],
   created() {
     const summaryId = this.$route.params.summaryId;
     this.$http.get(`http://localhost:4000/reference/${summaryId}`)
