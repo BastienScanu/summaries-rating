@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import SummariesList from '@/components/SummariesList';
-import Summary from '@/components/Summary';
+import TopicsList from '@/components/TopicsList';
+import Topic from '@/components/Topic';
 
 Vue.use(Router);
 
@@ -9,13 +9,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'SummariesList',
-      component: SummariesList,
+      name: 'TopicsList',
+      component: TopicsList,
     },
     {
-      path: '/summary/:summaryId',
-      name: 'Summary',
-      component: Summary,
+      path: '/topic/:topicId',
+      name: 'Topic',
+      component: Topic,
     },
   ],
 });

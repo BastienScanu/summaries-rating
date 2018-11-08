@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Summary {{ $route.params.summaryId }}</h1>
+    <h1>Topic {{ $route.params.topicId }}</h1>
     <h2>Human summaries</h2>
     <div class="textList">
       <summaryCard
@@ -24,7 +24,7 @@
 import SummaryCard from './elements/SummaryCard';
 
 export default {
-  name: 'Summary',
+  name: 'Topic',
   data() {
     return {
       references: [],
@@ -36,12 +36,12 @@ export default {
     SummaryCard,
   },
   created() {
-    const summaryId = this.$route.params.summaryId;
-    this.$http.get(`http://localhost:4000/reference/${summaryId}`)
+    const topicId = this.$route.params.topicId;
+    this.$http.get(`http://localhost:4000/reference/${topicId}`)
       .then((response) => {
         this.references = response.body;
       });
-    this.$http.get(`http://localhost:4000/system/${summaryId}`)
+    this.$http.get(`http://localhost:4000/system/${topicId}`)
       .then((response) => {
         this.systems = response.body;
       });

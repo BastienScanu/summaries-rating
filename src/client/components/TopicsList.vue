@@ -1,10 +1,10 @@
 <template>
   <div>
     <div>
-      <h1>Summaries</h1>
+      <h1>Topics</h1>
       <ul>
-        <li v-for="(value, key) in summaries" v-bind:key="key">
-          <router-link :to="{ name: 'Summary', params: { summaryId: key }}">{{ key }}</router-link>
+        <li v-for="(value, key) in topics" v-bind:key="key">
+          <router-link :to="{ name: 'Topic', params: { topicId: key }}">{{ key }}</router-link>
         </li>
       </ul>
     </div>
@@ -14,17 +14,17 @@
 <script>
 
 export default {
-  name: 'SummariesList',
+  name: 'TopicsList',
   data() {
     return {
-      summaries: [],
+      topics: [],
     };
   },
   props: ['user'],
   created() {
     this.$http.get('http://localhost:4000/reference')
       .then((response) => {
-        this.summaries = response.body;
+        this.topics = response.body;
       });
   },
 };
