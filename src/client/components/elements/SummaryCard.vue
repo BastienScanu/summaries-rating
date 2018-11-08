@@ -7,7 +7,11 @@
       </span>
     </div>
     <hr v-if=canRate>
-    <stars-rating v-if=canRate :rating=getRate></stars-rating>
+    <stars-rating
+      v-if=canRate
+      :rating="rating"
+      @rating-selected="updateScore($event)">
+    </stars-rating>
   </div>
 </template>
 
@@ -16,15 +20,23 @@ import StarsRating from './StarsRating';
 
 export default {
   name: 'SummaryCard',
-  computed: {
-    getRate() {
-      return this.summary[`score-${this.user}`] || 0;
-    },
+  created() {
+    this.rating = this.summary[`score-${this.user}`] || 0;
   },
   components: {
     StarsRating,
   },
-  props: ['summary', 'canRate', 'user'],
+  methods: {
+    updateScore(event) {
+      const modif = {
+        index: this.index,
+        user: this.user,
+        score: event,
+      };
+      this.$http.put(`http://localhost:4000/system/${this.topicId}`, modif);
+    },
+  },
+  props: ['summary', 'canRate', 'user', 'topicId', 'index'],
 };
 </script>
 
