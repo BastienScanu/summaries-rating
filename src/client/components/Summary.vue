@@ -1,19 +1,26 @@
 <template>
   <div>
-    <h1>Summary</h1>
+    <h1>Summary {{ $route.params.summaryId }}</h1>
     <h2>Human summaries</h2>
-    <p v-for="summary in references" v-bind:key="summary.id" class="textList">
-      <summaryCard :summary=summary></summaryCard>
-    </p>
+    <div class="textList">
+      <summaryCard
+        v-for="summary in references"
+        v-bind:key="summary.id"
+        :summary=summary></summaryCard>
+    </div>
     <h2>Generated summaries</h2>
-    <p v-for="(summary, idx) in systems" v-bind:key="idx" class="textList">
-      <summaryCard :summary=summary></summaryCard>
-    </p>
+    <div class="textList">
+      <summary-card
+        v-for="(summary, idx) in systems"
+        v-bind:key="idx"
+        :summary=summary
+        :canRate=true></summary-card>
+    </div>
   </div>
 </template>
 
 <script>
-import SummaryCard from './SummaryCard';
+import SummaryCard from './elements/SummaryCard';
 
 export default {
   name: 'Summary',
@@ -28,11 +35,11 @@ export default {
   },
   created() {
     const summaryId = this.$route.params.summaryId;
-    this.$http.get(`http://localhost:3000/reference/${summaryId}`)
+    this.$http.get(`http://localhost:4000/reference/${summaryId}`)
       .then((response) => {
         this.references = response.body;
       });
-    this.$http.get(`http://localhost:3000/system/${summaryId}`)
+    this.$http.get(`http://localhost:4000/system/${summaryId}`)
       .then((response) => {
         this.systems = response.body;
       });
@@ -43,5 +50,6 @@ export default {
 <style>
   .textList {
     display: flex;
+    justify-content: space-around;
   };
 </style>
