@@ -1,14 +1,14 @@
 <template>
-    <div class="card">
-        <div>
-            <span
-                v-for="(sentence, idx) in summary.text"
-                v-bind:key="idx">{{ sentence }}
-            </span>
-        </div>
-        <hr v-if=canRate>
-        <stars-rating v-if=canRate></stars-rating>
+  <div class="card">
+    <div>
+      <span
+        v-for="(sentence, idx) in summary.text"
+        v-bind:key="idx">{{ sentence }}
+      </span>
     </div>
+    <hr v-if=canRate>
+    <stars-rating v-if=canRate :rating=getRate></stars-rating>
+  </div>
 </template>
 
 <script>
@@ -16,10 +16,10 @@ import StarsRating from './StarsRating';
 
 export default {
   name: 'SummaryCard',
-  data() {
-    return {
-      summaries: [],
-    };
+  computed: {
+    getRate() {
+      return this.summary[`score-${this.user}`] || 0;
+    },
   },
   components: {
     StarsRating,
