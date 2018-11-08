@@ -10,7 +10,10 @@
         <option>Gimli</option>
       </select>
     </header>
-    <router-view :user=user></router-view>
+    <router-view v-if=user :user=user></router-view>
+    <div v-else>
+      <h1>You must choose an user to start</h1>
+    </div>
   </div>
 </template>
 

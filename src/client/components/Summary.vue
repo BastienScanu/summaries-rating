@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user">
+  <div>
     <h1>Summary {{ $route.params.summaryId }}</h1>
     <h2>Human summaries</h2>
     <div class="textList">
@@ -10,15 +10,12 @@
     </div>
     <h2>Generated summaries</h2>
     <div class="textList">
-      <summary-card
+      <summaryCard
         v-for="(summary, idx) in systems"
         v-bind:key="idx"
         :summary=summary
-        :canRate=true></summary-card>
+        :canRate=true></summaryCard>
     </div>
-  </div>
-  <div v-else>
-    <h1>You must choose an user to start</h1>
   </div>
 </template>
 
@@ -33,10 +30,10 @@ export default {
       systems: [],
     };
   },
+  props: ['user'],
   components: {
     SummaryCard,
   },
-  props: ['user'],
   created() {
     const summaryId = this.$route.params.summaryId;
     this.$http.get(`http://localhost:4000/reference/${summaryId}`)

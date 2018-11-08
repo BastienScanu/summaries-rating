@@ -1,15 +1,12 @@
 <template>
   <div>
-    <div v-if="user">
+    <div>
       <h1>Summaries</h1>
       <ul>
         <li v-for="(value, key) in summaries" v-bind:key="key">
           <router-link :to="{ name: 'Summary', params: { summaryId: key }}">{{ key }}</router-link>
         </li>
       </ul>
-    </div>
-    <div v-else>
-      <h1>You must choose an user to start</h1>
     </div>
   </div>
 </template>
