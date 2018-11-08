@@ -9,7 +9,7 @@
       </ul>
     </div>
     <div v-else>
-      <p>You must choose an user to start</p>
+      <h1>You must choose an user to start</h1>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   },
   props: ['user'],
   created() {
-    this.$http.get('http://localhost:3000/reference')
+    this.$http.get('http://localhost:4000/reference')
       .then((response) => {
         this.summaries = response.body;
       });
