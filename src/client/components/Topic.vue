@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Topic {{ $route.params.topicId }}</h1>
+    <h1>Topic {{ topicId }}</h1>
     <h2>Human summaries</h2>
     <div class="textList">
       <summaryCard
@@ -15,6 +15,8 @@
         v-bind:key="idx"
         :summary=summary
         :user=user
+        :index=idx
+        :topicId=topicId
         :canRate=true></summaryCard>
     </div>
   </div>
@@ -36,12 +38,12 @@ export default {
     SummaryCard,
   },
   created() {
-    const topicId = this.$route.params.topicId;
-    this.$http.get(`http://localhost:4000/reference/${topicId}`)
+    this.topicId = this.$route.params.topicId;
+    this.$http.get(`http://localhost:4000/reference/${this.topicId}`)
       .then((response) => {
         this.references = response.body;
       });
-    this.$http.get(`http://localhost:4000/system/${topicId}`)
+    this.$http.get(`http://localhost:4000/system/${this.topicId}`)
       .then((response) => {
         this.systems = response.body;
       });
