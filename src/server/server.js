@@ -1,11 +1,19 @@
+const bodyParser = require('body-parser');
 const express = require('express');
-
-const app = express();
 const cors = require('cors');
 
+const app = express();
+
+const PORT = 4000;
+
 app.use(cors());
+
+app.use(bodyParser.json({
+  limit: '5mb',
+}));
+
 app.use('/', require('./Routes'));
 
-app.listen(4000, () => {
-  console.log('App listening on port 3000!');
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}!`);
 });

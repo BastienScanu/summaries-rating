@@ -14,14 +14,14 @@ router.route('/reference').get(Database.getAll);
 
 // Get a specific reference (references cannot be modified, created nor deleted)
 router.route('/reference/:referenceId')
-    .get(Database.send);
+  .get(Database.send);
 
 // Get all the systems
 router.route('/system').get(Database.getAll);
 
 // Get a specific system (system cannot be created nor deleted)
 router.route('/system/:systemId')
-    .get(Database.send)
-    .put(Database.update, Database.send);
+  .get(Database.send)
+  .put(Database.update);
 
 module.exports = router;

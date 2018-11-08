@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const References = require('./data/example_references.json');
 const Systems = require('./data/example_systems.json');
 
@@ -20,7 +23,7 @@ class Database {
       req.data = Data[model][req.params[`${model}Id`]];
       return next();
     }
-    return res.status(404).send({message: 'Ressource not found'});
+    return res.status(404).send({ message: 'Ressource not found' });
   }
 
   static getAll(req, res) {
@@ -29,11 +32,19 @@ class Database {
 
   static send(req, res) {
     return res.status(200).json(req.data);
-  };
+  }
 
-  static update(req, res, next) {
-    //TODO
-    return next();
+  static update(req, res) {
+    if (
+      req.body &&
+      (req.body.index || req.body.index === 0) &&
+      req.body.user &&
+      (req.body.score || req.body.score === 0)) {
+      Systems[req.params.systemId][req.body.index][`score-${req.body.user}`] = req.body.score;
+      const filePath = path.resolve(__dirname, './data/example_systems.json');
+      fs.writeFile(filePath, JSON.stringify(Systems, null, 2));
+    }
+    return res.status(200).json(req.data);
   }
 }
 
