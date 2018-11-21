@@ -1,5 +1,5 @@
 {
-  "Database number one": {
+  "data_1": {
     "topics": [
       {
         "id": "D0821",
@@ -63,7 +63,7 @@
             ],
             "score-Aragorn": 5,
             "score-Gandalf": 4,
-            "score-Gimli": 1
+            "score-Gimli": 3
           },
           {
             "text": [
@@ -75,7 +75,7 @@
             ],
             "score-Aragorn": 5,
             "score-Gandalf": 4,
-            "score-Gimli": 0.5
+            "score-Gimli": 3
           }
         ]
       },

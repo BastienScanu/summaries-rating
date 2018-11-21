@@ -1,33 +1,36 @@
 const fs = require('fs');
 const path = require('path');
 
-const References = require('./data/example_references.json');
-const Systems = require('./data/example_systems.json');
-
-const Data = {
-  reference: References,
-  system: Systems,
-};
+const Data = require('./data/database.json');
 
 class Database {
-  static model(model) {
-    return (req, res, next) => {
-      req.model = model;
-      return next();
-    };
-  }
 
   static load(req, res, next) {
-    const model = req.model;
-    if (Data[model] && Data[model][req.params[`${model}Id`]]) {
-      req.data = Data[model][req.params[`${model}Id`]];
+    const datasetId = req.params.datasetId;
+    if (datasetId && Data[datasetId]) {
+      req.dataset = Data[datasetId];
       return next();
     }
     return res.status(404).send({ message: 'Ressource not found' });
   }
 
-  static getAll(req, res) {
-    return res.status(200).json(Data[req.model]);
+  static getDatasets(req, res) {
+    const names = Object.keys(Data);
+    return res.status(200).json(names);
+  }
+
+  static getAllTopics(req, res) {
+    const topics = req.dataset.topics.map(topic => ({ name: topic.name, id: topic.id }));
+    return res.status(200).json(topics);
+  }
+
+  static findTopic(req, res, next) {
+    req.topic = req.dataset.topics.find(t => t.id === req.params.topicId);
+    return next();
+  }
+
+  static sendTopic(req, res) {
+    return res.status(200).send(req.topic);
   }
 
   static send(req, res) {
@@ -40,9 +43,10 @@ class Database {
       (req.body.index || req.body.index === 0) &&
       req.body.user &&
       (req.body.score || req.body.score === 0)) {
-      Systems[req.params.systemId][req.body.index][`score-${req.body.user}`] = req.body.score;
-      const filePath = path.resolve(__dirname, './data/example_systems.json');
-      fs.writeFileSync(filePath, JSON.stringify(Systems, null, 2));
+      const topicIndex = req.dataset.topics.findIndex(t => t.id === req.params.topicId);
+      Data[req.params.datasetId].topics[topicIndex].systems[req.body.index][`score-${req.body.user}`] = req.body.score;
+      const filePath = path.resolve(__dirname, './data/database.json');
+      fs.writeFileSync(filePath, JSON.stringify(Data, null, 2));
     }
     return res.status(200).json(req.data);
   }

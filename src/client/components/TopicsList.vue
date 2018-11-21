@@ -1,10 +1,12 @@
 <template>
   <div>
     <div>
-      <h1>Topics</h1>
+      <h1>Topics for {{ datasetId }}</h1>
       <ul>
-        <li v-for="(value, key) in topics" v-bind:key="key">
-          <router-link :to="{ name: 'Topic', params: { topicId: key }}">{{ key }}</router-link>
+        <li v-for="topic in topics" v-bind:key="topic.id">
+          <router-link :to="{ name: 'Topic', params: { topicId: topic.id }}">
+            {{ topic.name }}
+          </router-link>
         </li>
       </ul>
     </div>
@@ -22,7 +24,8 @@ export default {
   },
   props: ['user'],
   created() {
-    this.$http.get('http://localhost:4000/reference')
+    this.datasetId = this.$route.params.datasetId;
+    this.$http.get(`http://localhost:4000/dataset/${this.datasetId}/topic`)
       .then((response) => {
         this.topics = response.body;
       });

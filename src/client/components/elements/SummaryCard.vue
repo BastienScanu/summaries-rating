@@ -36,10 +36,10 @@ export default {
         score: event,
       };
       this.$emit('rating', modif);
-      this.$http.put(`http://localhost:4000/system/${this.topicId}`, modif);
+      this.$http.put(`http://localhost:4000/dataset/${this.datasetId}/topic/${this.topicId}`, modif);
     },
   },
-  props: ['summary', 'canRate', 'user', 'topicId', 'index'],
+  props: ['summary', 'canRate', 'user', 'datasetId', 'topicId', 'index'],
 };
 </script>
 
